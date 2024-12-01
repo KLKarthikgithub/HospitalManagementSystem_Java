@@ -1,28 +1,24 @@
+package com.hms.patients;
+import java.sql.Date;
+
 public class Patient {
     private int id;
     private String name;
     private int age;
     private String gender;
-    private String contactNumber;
-    private String address;
+    private String contact;
+    private Date dateOfJoining;
+    private String status;
 
     // Constructor
-    public Patient(int id, String name, int age, String gender, String contactNumber, String address) {
+    public Patient(int id, String name, int age, String gender, String contact, Date dateOfJoining, String status) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.gender = gender;
-        this.contactNumber = contactNumber;
-        this.address = address;
-    }
-
-    // Constructor without ID (for adding new patients where ID is auto-generated)
-    public Patient(String name, int age, String gender, String contactNumber, String address) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.contactNumber = contactNumber;
-        this.address = address;
+        this.contact = contact;
+        this.dateOfJoining = dateOfJoining;
+        this.status = status;
     }
 
     // Getters and Setters
@@ -58,32 +54,33 @@ public class Patient {
         this.gender = gender;
     }
 
-    public String getContactNumber() {
-        return contactNumber;
+    public String getContact() {
+        return contact;
     }
 
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
-    public String getAddress() {
-        return address;
+    public Date getDateOfJoining() {
+        return dateOfJoining;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDateOfJoining(Date dateOfJoining) {
+        this.dateOfJoining = dateOfJoining;
     }
 
-    // toString Method for Display
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "Patient{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", contactNumber='" + contactNumber + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        return String.format("ID: %d, Name: %s, Age: %d, Gender: %s, Contact: %s, Date of Joining: %s, Status: %s",
+                id, name, age, gender, contact, dateOfJoining, status);
     }
 }
